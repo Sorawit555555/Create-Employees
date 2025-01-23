@@ -2,12 +2,15 @@ import { useState } from "react";
 import { router } from '@inertiajs/react';
 import './index.css';
 
-// query ค่าของการค้นหาที่ส่งกลับมาจาก controller
+// คิวลี่ query ค่าของการค้นหาที่ส่งกลับมาจาก controller
 // employees ข้อมูลพนักงานที่ส่งกลับมาจาก controller
 export default function Index({ employees, query }) {
 
+    //รับค่า query มาจาก controller เพื่อใช้ในการค้นหา
     const [search, setSearch] = useState(query || '');
+    //sortedEmployees: เก็บข้อมูลพนักงานที่ถูกจัดเรียง (เริ่มต้นจาก employees.data)
     const [sortedEmployees, setSortedEmployees] = useState(employees.data);
+    //sortConfig: เก็บการตั้งค่าการจัดเรียง   (column) และลำดับ (order)
     const [sortConfig, setSortConfig] = useState({ column: 'emp_no', order: 'asc' });
 
     const handleSearch = (e) => {
@@ -36,6 +39,8 @@ export default function Index({ employees, query }) {
     };
 
     return (
+
+
         <div>
             <h1>Employee List</h1>
             <form onSubmit={handleSearch} className="mb-4">
@@ -55,10 +60,10 @@ export default function Index({ employees, query }) {
                     value={sortConfig.column}
                     onChange={(e) => handleSortChange(e.target.value, sortConfig.order)}
                 >
-                    <option value="emp_no">ID</option>
+
                     <option value="first_name">First Name</option>
                     <option value="last_name">Last Name</option>
-                    <option value="birth_date">Birthday</option>
+
                 </select>
 
                 <label htmlFor="order-select">Order:</label>
@@ -83,6 +88,8 @@ export default function Index({ employees, query }) {
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Birthday</th>
+                            <th>Gender</th>
+                            <th>Departments</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,6 +99,8 @@ export default function Index({ employees, query }) {
                                 <td>{employee.first_name}</td>
                                 <td>{employee.last_name}</td>
                                 <td>{employee.birth_date}</td>
+                                <td>{employee.gender}</td>
+                                <td>{employee.dept_name}</td>
                             </tr>
                          //รับค่า employees มาจาก Controller เเล้ว map เพื่อวนลูปข้อมูลเเสดงผลในตาราง
                         ))}

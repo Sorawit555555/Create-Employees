@@ -15,7 +15,19 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/employee',[EmployeeController::class, 'index']);
+Route::get('/employee', [EmployeeController::class, 'index'])
+    ->name('employee.index');
+
+// ไปเปิดหน้าแบบฟอร์มสำหรับเพิ่มข้อมูลพนักงาน ตัวcontrollerสั่งให้ไปเปิดหน้าจอ
+Route:: get ('/employee/create', [EmployeeController:: class, 'create' ] )
+->name('employee.create' );
+
+// Function สำหรับบันทึกข้อมูลพนักงาน
+Route:: post ('/employee', [EmployeeController:: class, 'store' ] )
+->name('employee.store' );
+// ปุ่มตกลง ทำการผ่าน post ไปที่ employee.store
+
+
 
 
 Route::get('/dashboard', function () {

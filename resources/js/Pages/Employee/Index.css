@@ -118,20 +118,21 @@ h1 {
     font-size: 36px; /* ขนาดฟอนต์ */
     font-weight: bold; /* หนัก */
     text-align: center; /* จัดกลาง */
-    color: #4CAF50; /* สีตัวอักษร */
+    color: rgb(240, 234, 234); /* สีดำปนแดง */
     text-transform: uppercase; /* ตัวอักษรพิมพ์ใหญ่ */
     letter-spacing: 2px; /* ระยะห่างระหว่างตัวอักษร */
     padding: 20px; /* เพิ่มพื้นที่ด้านใน */
     margin-bottom: 30px; /* เพิ่มพื้นที่ด้านล่าง */
-    background-color: #f4f4f9; /* สีพื้นหลัง */
-    border: 2px solid #4CAF50; /* เส้นขอบ */
+    background-color: rgb(139, 0, 0); /* สีพื้นหลัง */
+    border: 2px solid rgb(139, 0, 0); /* เส้นขอบสีเดียวกัน */
     border-radius: 10px; /* มุมโค้ง */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
     transition: all 0.3s ease; /* การเคลื่อนไหว */
 }
 
 h1:hover {
-    background-color: #4CAF50; /* สีพื้นหลังเมื่อ hover */
+    background-color: rgb(139, 0, 0); /* สีพื้นหลังเมื่อ hover */
     color: #fff; /* สีตัวอักษรเมื่อ hover */
     transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
 }
+
