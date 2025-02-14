@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EmployeeController;
 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -15,20 +16,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/employee', [EmployeeController::class, 'index'])
-    ->name('employee.index');
+Route::get('/register', function () {
+    return Inertia::render('Register');
+});
 
-// ไปเปิดหน้าแบบฟอร์มสำหรับเพิ่มข้อมูลพนักงาน ตัวcontrollerสั่งให้ไปเปิดหน้าจอ
-Route:: get ('/employee/create', [EmployeeController:: class, 'create' ] )
-->name('employee.create' );
-
-// Function สำหรับบันทึกข้อมูลพนักงาน
-Route:: post ('/employee', [EmployeeController:: class, 'store' ] )
-->name('employee.store' );
-// ปุ่มตกลง ทำการผ่าน post ไปที่ employee.store
-
-
-
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
